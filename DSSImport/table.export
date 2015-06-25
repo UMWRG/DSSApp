@@ -1,0 +1,147 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<Table>
+	<CaptionRow>
+		<CaptionItem>Name First</CaptionItem>
+		<CaptionItem>Name Last</CaptionItem>
+		<CaptionItem>Sport</CaptionItem>
+		<CaptionItem># of Years</CaptionItem>
+		<CaptionItem>Vegetarian</CaptionItem>
+		<CaptionItem>Hourly Rate</CaptionItem>
+	</CaptionRow>
+	<ValuesRow>
+		<ValuesItem>Kathy</ValuesItem>
+		<ValuesItem>Walrath</ValuesItem>
+		<ValuesItem>Chasing toddlers</ValuesItem>
+		<ValuesItem>2</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$12.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Alison</ValuesItem>
+		<ValuesItem>Huml</ValuesItem>
+		<ValuesItem>Rowing</ValuesItem>
+		<ValuesItem>2.5</ValuesItem>
+		<ValuesItem>true</ValuesItem>
+		<ValuesItem>$5.50</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Kathy</ValuesItem>
+		<ValuesItem>Walrath</ValuesItem>
+		<ValuesItem>Chasing toddlers</ValuesItem>
+		<ValuesItem>2</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$12.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>3.5</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+	<ValuesRow>
+		<ValuesItem>Angela</ValuesItem>
+		<ValuesItem>Lih</ValuesItem>
+		<ValuesItem>Teaching high school</ValuesItem>
+		<ValuesItem>4</ValuesItem>
+		<ValuesItem>false</ValuesItem>
+		<ValuesItem>$112.42</ValuesItem>
+	</ValuesRow>
+</Table>

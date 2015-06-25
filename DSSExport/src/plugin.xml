@@ -1,0 +1,77 @@
+<plugin_info>
+    <plugin_name>Export Data DSS</plugin_name>
+    <plugin_dir>dss_export.bat</plugin_dir>
+    <plugin_description>Export a timeseries to a HEC DSS file</plugin_description>
+    <plugin_epilog>
+        Written by Stephen Knox stephen.knox@manchester.ac.uk
+        (c) Copyright 2015, University of Manchester
+        For more information visit www.hydra-network.com
+    </plugin_epilog>
+    <smallicon>HEC.png</smallicon>
+    <largeicon>HEC.png</largeicon>
+    <mandatory_args>
+        <arg>
+            <name>Dataset IDs</name>
+            <switch>-d</switch>
+            <multiple>N</multiple>
+            <argtype>string</argtype>
+            <allownew>N</allownew>
+            <help>Comma-separated dataset IDS.</help>
+        </arg>
+    </mandatory_args>
+    <non_mandatory_args>
+        <arg>
+            <name>Dataset Collection</name>
+            <switch>-n</switch>
+            <multiple>N</multiple>
+            <argtype>string</argtype>
+            <allownew>N</allownew>
+            <help>A dataset collection ID</help>
+        </arg>
+        <arg>
+            <name>Target folder</name>
+            <switch>-o</switch>
+            <multiple>N</multiple>
+            <argtype>path</argtype>
+            <allownew>Y</allownew>
+            <help>The folder that will contain the output. Defaults to the desktop.</help>
+        </arg>
+        <arg>
+            <name>Target file name</name>
+            <switch>-f</switch>
+            <multiple>N</multiple>
+            <argtype>string</argtype>
+            <allownew>Y</allownew>
+            <help>The name of the file to be exported. Defaults to "output_" plus the export time.</help>
+        </arg>
+
+
+       <arg>
+            <name>Data Collection ID</name>
+            <switch>-n</switch>
+            <multiple>N</multiple>
+            <argtype>string</argtype>
+            <allownew>N</allownew>
+            <help>The name of the dataset collection into which all the timeseries will be put</help>
+        </arg>
+        <arg>
+            <name>server_url</name>
+            <switch>-u</switch>
+            <multiple>N</multiple>
+            <argtype>string</argtype>
+            <help>Specify the URL of the server to which this
+                        plug-in connects.</help>
+        </arg>
+        <arg>
+            <name>session_id</name>
+            <switch>-c</switch>
+            <multiple>N</multiple>
+            <argtype>string</argtype>
+            <allownew>N</allownew>
+            <help>Specify the session ID for the connection. If not specified,
+            the plugin will try to connect based on the credentials it finds in config</help>
+        </arg>
+    </non_mandatory_args> 
+    <switches>
+    </switches>
+ </plugin_info>

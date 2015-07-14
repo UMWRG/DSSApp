@@ -4,14 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class JSONConnector {
@@ -50,7 +49,7 @@ public class JSONConnector {
 	 * @param parameters
 	 */
 	public String call_function(String function_name, JSONObject params) throws HydraClientException{
-		System.out.println("Calling " + function_name + "" + params.toString());
+		System.out.println("Calling " + function_name);
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		if (this.URL == null){
 			throw new HydraClientException("No URL defined!");

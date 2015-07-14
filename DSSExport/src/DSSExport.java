@@ -6,7 +6,11 @@ import hec.io.TimeSeriesContainer;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -211,9 +215,13 @@ public class DSSExport {
 			TimeSeriesContainer ts = new TimeSeriesContainer();
 			
 			//First off, get the value in
-			TimeSeries timeseries = (TimeSeries) dataset.value;
+			Hashtable<DateTime, Double> timeseries = dataset.value;
 			
-			DateTime[] times_as_date = timeseries.get_times();
+			DateTime[] times_as_date = new DateTime[timeseries.size()];
+			
+			Set<DateTime> datetimes = timeseries.keySet();
+			datetimes.toArray(times_as_date);
+			
 			int[] int_times = new int[times_as_date.length];
 			
 		    DateTimeFormatter fmt = DateTimeFormat.forPattern("dd MMM yyyy, HH:mm");
@@ -231,7 +239,14 @@ public class DSSExport {
 			test.set(int_times[0]);
 
 			ts.times = int_times;
-			double[] values = timeseries.get_values();
+			//Convert the values into a dss-compatible format (array of doubles)
+			double[] values = new double[timeseries.size()];
+			ArrayList<Double> v = new ArrayList<Double>(timeseries.values());
+			
+			//Convert Double to double.
+			for (int i=0; i<v.size(); i++){
+				values[i] = v.get(i).doubleValue();
+			}
 
 			ts.values = values;
 			

@@ -130,7 +130,6 @@ public class DSSImport {
 	}
 	
 	public List<Dataset> read_dss_file(String file_name) throws Exception{
-		List<Dataset> datasets = new ArrayList<Dataset>();
 		
 		//Open up the dss file
 		HecDss dss_file = HecDss.open(file_name);

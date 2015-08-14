@@ -1,5 +1,5 @@
 <plugin_info>
-    <plugin_name>Export Data DSS</plugin_name>
+    <plugin_name>Export to DSS</plugin_name>
     <plugin_dir>dss_export.bat</plugin_dir>
     <plugin_description>Export a timeseries to a HEC DSS file</plugin_description>
     <plugin_epilog>

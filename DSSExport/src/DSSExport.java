@@ -1,13 +1,10 @@
 import hec.heclib.dss.HecDss;
 import hec.heclib.util.HecTime;
-import hec.hecmath.TimeSeriesMath;
 import hec.io.TimeSeriesContainer;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +21,6 @@ import org.joda.time.Days;
 import org.joda.time.Hours;
 import org.joda.time.Minutes;
 import org.joda.time.Months;
-import org.joda.time.Seconds;
 import org.joda.time.Years;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -35,8 +31,6 @@ import JSONClientLib.HydraClientException;
 import JSONClientLib.JSONConnector;
 import Resources.Dataset;
 import Resources.DatasetCollection;
-import Resources.TimeSeries;
-
 
 public class DSSExport {
 

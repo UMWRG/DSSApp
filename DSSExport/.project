@@ -16,6 +16,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>java</name>
+			<type>2</type>
+			<location>/home/stephen/git/HydraPlatform/HydraLib/java</location>
+		</link>
+		<link>
 			<name>lib</name>
 			<type>2</type>
 			<location>/home/stephen/git/hydra_plugins/DSS/lib</location>

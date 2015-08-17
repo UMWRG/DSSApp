@@ -52,8 +52,8 @@ public class DSSExport {
 		System.out.println("!!Progress 1/"+DSSExport.steps);
 		String userHome             = System.getProperty("user.home");
 		String defaultOutputFolder  = userHome + File.separator + "Desktop";
-	    DateTimeFormatter file_name_format = DateTimeFormat.forPattern("ddMMMyyyy_HH:mm");
-		String defaultOutputFile    = "output_"+file_name_format.print(DateTime.now());
+	    DateTimeFormatter file_name_format = DateTimeFormat.forPattern("ddMMMyyyyHHmm");
+		String defaultOutputFile    = "output_"+file_name_format.print(DateTime.now())+".dss";
 		
 		// App-specific options
 		options.addOption("d", true, "Dataset IDS");
@@ -210,7 +210,7 @@ public class DSSExport {
 			
 			//First off, get the value in
 			Hashtable<DateTime, Double> timeseries = dataset.value;
-			
+
 			DateTime[] times_as_date = new DateTime[timeseries.size()];
 			
 			Set<DateTime> datetimes = timeseries.keySet();

@@ -5,6 +5,7 @@ import hec.io.DataContainer;
 import hec.io.TimeSeriesContainer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Vector;
@@ -42,8 +43,9 @@ public class DSSImport {
 		Options options = new Options();
 
 		// App-specific options
-		options.addOption("f", true, "file path");
-		options.addOption("n", true, "Collection Name");
+		options.addOption("f", true,  "file path");
+		options.addOption("n", true,  "Collection Name");
+		options.addOption("x", false, "Compress Timeseries");
 		
 		//Options required by all apps.
 		options.addOption("c", true, "session ID");
@@ -83,10 +85,12 @@ public class DSSImport {
 			String collection_name = cmd.getOptionValue('n', 
 					                "DSS import of " + file_name + DateTime.now().toString());
 			
+			boolean compress_timeseries = cmd.hasOption('x');
+
 			System.out.println("!!Progress 2/"+DSSImport.steps);
 			System.out.println("!!Output Reading DSS file.");
 			
-			List<Dataset> datasets = d.read_dss_file(file_name);
+			List<Dataset> datasets = d.read_dss_file(file_name, compress_timeseries);
 
 			System.out.println("!!Progress 3/"+DSSImport.steps);
 			System.out.println("!!Output Saving datasets.");
@@ -129,8 +133,7 @@ public class DSSImport {
 
 	}
 	
-	public List<Dataset> read_dss_file(String file_name) throws Exception{
-		
+	public List<Dataset> read_dss_file(String file_name, boolean compress_timeseries) throws Exception{
 		//Open up the dss file
 		HecDss dss_file = HecDss.open(file_name);
 
@@ -147,40 +150,84 @@ public class DSSImport {
 				ts_containers.add(ts);
 			}
 		}
+
 		//Create a list of timeseries to send to the server.
-		List<Dataset> all_timeseries = new ArrayList<Dataset>();
+		//Use this if the timeseries are compressed
+		Hashtable<String, Dataset> dataset_dict = new Hashtable<String, Dataset>();
+		//A list of all individual datasets. Use this when the timeseries are not compressed
+		//as it stores each individual instance, not just the the last one (as with the dataset_dict).
+		List<Dataset> all_datasets = new ArrayList<Dataset>(); 
+
 		for (int i=0; i<ts_containers.size();i++){
 			
-			Dataset dataset = new Dataset();
-			
 			TimeSeriesContainer ts = ts_containers.get(i);
-			
-			dataset.name      = ts.fullName;
-			dataset.unit      = ts.units;
-			dataset.type      = "timeseries";
-			dataset.dimension = "";
-			
-			this.get_metadata(dataset, ts);
-			
-			int[] times = ts.times;
-			double[] values = ts.values;
-			Hashtable<DateTime, Double> hydra_ts = new Hashtable<DateTime, Double>();
-			
-			for (int j=0; j< times.length; j++){
-				int time = times[j];
-				double value = values[j];
-				HecTime hectime = new HecTime();
-				hectime.set(time);
-				DateTime d = new DateTime(hectime.getJavaDate(0));
-				hydra_ts.put(d, value);
+
+			String dataset_name=ts.location + "/" + ts.parameter;
+
+			if(dataset_dict.containsKey(dataset_name) && compress_timeseries == true){
+
+				Dataset dataset = dataset_dict.get(dataset_name);
+								
+				this.get_metadata(dataset, ts);
+
+				int[] times = ts.times;
+				double[] values = ts.values;
+				
+				for (int j=0; j< times.length; j++){
+					int time = times[j];
+					double value = values[j];
+					HecTime hectime = new HecTime();
+					hectime.set(time);
+					DateTime d = new DateTime(hectime.getJavaDate(0));
+					dataset.value.put(d, value);
+				}
+				
+			}else{
+				Dataset dataset = new Dataset();
+				
+				dataset.name      = ts.fullName;
+				dataset.unit      = ts.units;
+				dataset.type      = "timeseries";
+				dataset.dimension = "";
+				
+				this.get_metadata(dataset, ts);
+
+				int[] times = ts.times;
+				double[] values = ts.values;
+				Hashtable<DateTime, Double> hydra_ts = new Hashtable<DateTime, Double>();
+				
+				for (int j=0; j< times.length; j++){
+					int time = times[j];
+					double value = values[j];
+					HecTime hectime = new HecTime();
+					hectime.set(time);
+					DateTime d = new DateTime(hectime.getJavaDate(0));
+					hydra_ts.put(d, value);
+				}
+				
+				dataset.value = hydra_ts;
+
+				dataset_dict.put(dataset_name, dataset);
+				all_datasets.add(dataset);
 			}
-			
-			dataset.value = hydra_ts;
-			
-			all_timeseries.add(dataset);
+
 		}
 		dss_file.done();
-		return all_timeseries;
+		
+		List<Dataset> dataset_list = new ArrayList<Dataset>();
+		
+		if (compress_timeseries == true){
+			Object[] dataset_array = dataset_dict.values().toArray();
+		
+			
+			for (int i=0; i< dataset_array.length; i++){
+				dataset_list.add((Dataset)dataset_array[i]);
+			}
+		}else{
+			dataset_list=all_datasets;
+		}
+		
+		return dataset_list;
 
 	}
 	

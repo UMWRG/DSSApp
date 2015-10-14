@@ -47,5 +47,11 @@
         </arg>
     </non_mandatory_args> 
     <switches>
+            <arg>
+            <name>Compress Timeseries</name>
+            <switch>-x</switch>
+            <multiple>N</multiple>
+            <help>Compress individual observations from a the same location and parameter into a single timeseries.</help>
+        </arg>
     </switches>
  </plugin_info>

@@ -37,15 +37,13 @@
             <help>The folder that will contain the output. Defaults to the desktop.</help>
         </arg>
         <arg>
-            <name>Target file name</name>
+            <name>Target file</name>
             <switch>-f</switch>
             <multiple>N</multiple>
-            <argtype>string</argtype>
+            <argtype>file</argtype>
             <allownew>Y</allownew>
-            <help>The name of the file to be exported. Defaults to "output_" plus the export time.</help>
+            <help>The file to be exported. Defaults to "output_" plus the export time.</help>
         </arg>
-
-
        <arg>
             <name>Data Collection ID</name>
             <switch>-n</switch>

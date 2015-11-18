@@ -95,10 +95,23 @@ public class DSSExport {
 			}else{
 				d.connection.session_id = d.session_id;
 			}
-			
-			d.output_folder = cmd.getOptionValue('o', defaultOutputFolder);
-			d.output_file = cmd.getOptionValue('f', defaultOutputFile);
-			
+
+			String output_file_param = cmd.getOptionValue('f', defaultOutputFile);
+			//Just get the file name from the path.
+			File outputFile = new File(output_file_param);
+			String fileName = outputFile.getName();
+			d.output_file = fileName;
+				
+			//If a full filepath is specified for export, use that. If it's just
+			//a file name, then use the given or default folder and the given name.
+			if (output_file_param.contains("/") || output_file_param.contains("\\")){
+				//We just want the path, not including the file name itself.
+				d.output_folder = outputFile.getAbsolutePath().replace(fileName,"");
+				System.out.println("Containing folder = " + d.output_folder);
+			}else{	
+				d.output_folder = cmd.getOptionValue('o', defaultOutputFolder);
+			}	
+						
 			String full_output_path = d.output_folder + File.separator + d.output_file;
 			
 			System.out.println("!!Output Will output file to " + full_output_path);
